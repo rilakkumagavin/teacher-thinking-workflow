@@ -36,32 +36,31 @@ function buildPrompt(){
 }
 function gateForm(target){
  const final=target===10;
- return `<form id="gate-form" class="gate-form" data-target="${target}" novalidate><label for="gate-code">${final?'輸入最後一組密碼':'輸入第'+String(target).padStart(2,'0')+'關取得的通關代碼'}</label><div class="gate-input-row"><input id="gate-code" name="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" placeholder="輸入通關代碼" aria-describedby="gate-feedback"><button class="primary" type="submit">${final?'解鎖全部步驟':'解鎖第'+String(target+1).padStart(2,'0')+'關'} →</button></div><p id="gate-feedback" class="gate-feedback" role="status">大小寫與連字號不影響判定，輸入後按 Enter 也可通關。</p></form>`;
+ return `<form id="gate-form" class="gate-form" data-target="${target}" novalidate><label for="gate-code">${final?'輸入最後一組密碼':'輸入講師提供的第'+String(target+1).padStart(2,'0')+'關密碼'}</label><div class="gate-input-row"><input id="gate-code" name="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" placeholder="輸入通關代碼" aria-describedby="gate-feedback"><button class="primary" type="submit">${final?'解鎖全部步驟':'解鎖第'+String(target+1).padStart(2,'0')+'關'} →</button></div><p id="gate-feedback" class="gate-feedback" role="status">大小寫與連字號不影響判定，輸入後按 Enter 也可通關。</p></form>`;
 }
 function bindGate(){
  document.getElementById('gate-form')?.addEventListener('submit',e=>{
   e.preventDefault();const input=$('gate-code');const target=Number(e.currentTarget.dataset.target);const result=Journey.redeem(state,target,input.value);
   if(!result.ok){$('gate-feedback').textContent=result.message;input.setAttribute('aria-invalid','true');input.focus();return;}
-  Object.assign(state,result.progress);gateTarget=null;if(target<10)state.step=target;save();render();$('workbench').scrollIntoView({block:'start',behavior:'smooth'});toast(target===10?'恭喜完成！全部步驟與最後彩蛋都已解鎖。':'密碼正確，第'+String(target+1).padStart(2,'0')+'關已開放。');
+  Object.assign(state,result.progress);gateTarget=null;if(result.progress.allUnlocked)state.step=9;else if(target<10)state.step=target;save();render();$('workbench').scrollIntoView({block:'start',behavior:'smooth'});toast(result.progress.allUnlocked?'全部步驟與最後彩蛋都已解鎖，可自由回看。':'密碼正確，第'+String(target+1).padStart(2,'0')+'關已開放。');
  });
- document.getElementById('copy-code')?.addEventListener('click',async()=>{const code=Journey.codeFor(state.step);try{await navigator.clipboard.writeText(code);toast('通關代碼已複製。');}catch{toast('請手動複製代碼：'+code);}});
+
 }
 function renderGate(){
  const slot=document.getElementById('journey-slot');if(!slot)return;
  if(state.allUnlocked){slot.innerHTML='<section class="journey-success"><span>✓ 完成整段旅程</span><h3>全部步驟已解鎖。</h3><p>現在可以自由回看與修訂十個活動，已解鎖的關卡會保留。最後一個活動也開放了兩步驟彩蛋。</p></section>';return;}
- const earned=state.awarded.includes(state.step),target=state.step+1;
- if(!earned){slot.innerHTML='<section class="journey-hint"><strong>這一關完成後，下一扇門就會打開。</strong><p>完成上方三項思考紀錄，再按「完成本關，取得代碼」。代碼會出現在這裡。</p></section>';return;}
- slot.innerHTML=`<section class="journey-pass"><p class="eyebrow">第 ${String(state.step+1).padStart(2,'0')} 關已完成</p><h3>${target===10?'最後一把鑰匙，交給你。':'帶著這組代碼，繼續下一關。'}</h3><div class="code-ticket"><code id="earned-code">${Journey.codeFor(state.step)}</code><button id="copy-code" class="text-button" type="button">複製代碼</button></div><p class="gate-note">${target===10?'輸入這組密碼後，全部十個步驟與最後彩蛋將一起解鎖。':'這是開啟第 '+String(target+1).padStart(2,'0')+' 關的密碼。請在下方輸入，再繼續思考。'}</p>${target<state.unlocked?'<p class="gate-note">下一關已解鎖，可使用導覽自由回到已開放的活動。</p>':gateForm(target)}</section>`;bindGate();
+ const target=state.step+1,recorded=state.completed.includes(state.step);
+ slot.innerHTML=`<section class="journey-pass"><p class="eyebrow">講師發碼 · 依現場節奏前進</p><h3>${recorded?'紀錄已完成，等待講師發碼。':'通關密碼，由講師提供。'}</h3><p class="gate-note">${target===10?'完成最後的回顧後，向講師取得最後一組密碼；輸入後即可解鎖全部步驟與彩蛋。':'先完成本關思考與討論，再依講師指示輸入下一關密碼。網站不會自行產生或顯示通關代碼。'}</p>${target<state.unlocked?'<p class="gate-note">下一關已解鎖，可使用導覽回到已開放的活動。</p>':gateForm(target)}</section>`;bindGate();
 }
 function renderLocked(){
  const target=gateTarget;
- $('activity').innerHTML=`<div class="activity-card locked-card"><span class="lock-emblem" aria-hidden="true">⌁</span><p class="eyebrow">一步一步，留下自己的判斷</p><h2>第 ${String(target+1).padStart(2,'0')} 關，等待你的通關密碼。</h2><p class="activity-intro">完成第 ${String(target).padStart(2,'0')} 關的三項思考紀錄後，就會出現這一關需要的代碼。已經拿到代碼的話，請在下方輸入。</p>${gateForm(target)}<button id="return-open" class="secondary">← 回到第 ${String(state.step+1).padStart(2,'0')} 關</button></div>`;
+ $('activity').innerHTML=`<div class="activity-card locked-card"><span class="lock-emblem" aria-hidden="true">⌁</span><p class="eyebrow">一步一步，留下自己的判斷</p><h2>第 ${String(target+1).padStart(2,'0')} 關，等待你的通關密碼。</h2><p class="activity-intro">請先完成前一關的思考與討論，等待講師提供密碼。已拿到講師給的密碼，即可在下方輸入；不需另行完成本機填寫才能解鎖。</p>${gateForm(target)}<button id="return-open" class="secondary">← 回到第 ${String(state.step+1).padStart(2,'0')} 關</button></div>`;
  bindGate();$('return-open').addEventListener('click',()=>{gateTarget=null;render();});updateFooter();
 }
 function renderNav(){
- $('step-nav').innerHTML=CYCLES.map((c,ci)=>`<div class="nav-cycle">${String(ci+1).padStart(2,'0')} / ${c.name}</div>`+STEPS.slice(ci*2,ci*2+2).map((s,j)=>{const i=ci*2+j;return `<button class="step-link ${i===state.step?'active':''}" data-step="${i}" ${i===state.step?'aria-current="step"':''}><span class="num">${String(i+1).padStart(2,'0')}</span>${s.short}${!Journey.canAccess(state,i)?'<span class="locked-label" aria-label="尚未解鎖">鎖定</span>':state.awarded.includes(i)?'<span class="done" aria-label="已通關">✓</span>':''}</button>`;}).join('')).join('');
+ $('step-nav').innerHTML=CYCLES.map((c,ci)=>`<div class="nav-cycle">${String(ci+1).padStart(2,'0')} / ${c.name}</div>`+STEPS.slice(ci*2,ci*2+2).map((s,j)=>{const i=ci*2+j;return `<button class="step-link ${i===state.step?'active':''}" data-step="${i}" ${i===state.step?'aria-current="step"':''}><span class="num">${String(i+1).padStart(2,'0')}</span>${s.short}${!Journey.canAccess(state,i)?'<span class="locked-label" aria-label="尚未解鎖">鎖定</span>':(state.allUnlocked||i<state.unlocked-1)?'<span class="done" aria-label="已通關">✓</span>':''}</button>`;}).join('')).join('');
  $('step-nav').querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>navigate(Number(b.dataset.step))));
- $('progress-label').textContent=state.allUnlocked?'全部步驟已解鎖':`${state.awarded.length} / 10 已通關`;$('progress-fill').style.width=`${state.awarded.length*10}%`;
+ $('progress-label').textContent=state.allUnlocked?'全部步驟已解鎖':`${state.unlocked-1} / 10 已通關`;$('progress-fill').style.width=`${state.allUnlocked?100:(state.unlocked-1)*10}%`;
  document.querySelectorAll('[data-cycle]').forEach(a=>{const locked=!Journey.canAccess(state,Number(a.dataset.cycle)*2);a.classList.toggle('cycle-locked',locked);a.setAttribute('aria-label',`${a.textContent}${locked?'，尚未解鎖':''}`);});
 }
 function lensText(){const v=SUBJECTS[state.subject];if(state.step<=1)return v.question+' 可觀察的學生操作：'+v.verbs+'。';if(state.step===2)return v.structure;if(state.step===3)return '查核焦點：'+v.trap+' 每項概念與答案仍需回到實際來源。';if(state.step===4)return v.blank+' '+v.visual;if(state.step===5)return '試用時特別注意：'+v.trap+' 檢查學生是否真的完成「'+v.verbs+'」的任務。';return '固定保留來源查核、答案一致與版本紀錄；依科目改變脈絡：'+v.structure;}
@@ -81,7 +80,7 @@ function updateFooter(){
  $('prev').hidden=gateTarget!==null;$('next').hidden=gateTarget!==null;$('complete').hidden=gateTarget!==null;
  $('prev').disabled=state.step===0;$('next').disabled=state.step===9&&state.allUnlocked;
  $('next').textContent=state.step===9?(state.allUnlocked?'全部步驟已解鎖':'輸入最後密碼，解鎖全部 →'):Journey.canAccess(state,state.step+1)?'下一個思考 →':'輸入密碼，前往下一關 →';
- $('complete').classList.toggle('recorded',state.completed.includes(state.step));$('complete').textContent=state.completed.includes(state.step)?'✓ 已完成本關任務':'✓ 完成本關，取得代碼';
+ $('complete').classList.toggle('recorded',state.completed.includes(state.step));$('complete').textContent=state.completed.includes(state.step)?'✓ 已完成本關任務':'✓ 完成本關紀錄';
 }
 function render(){renderNav();renderActivity();document.querySelectorAll('[data-subject]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.subject===state.subject)));$('teacher-toggle').setAttribute('aria-pressed',String(state.teacher));$('teacher-toggle').innerHTML=state.teacher?'回到教師學習模式 <span aria-hidden="true">↗</span>':'講師帶領模式 <span aria-hidden="true">↗</span>';}
 function navigate(i){if(!Journey.canAccess(state,i)){gateTarget=state.unlocked;render();$('workbench').scrollIntoView({block:'start',behavior:'smooth'});return;}gateTarget=null;state.step=i;save();render();$('workbench').scrollIntoView({block:'start',behavior:'smooth'});}
@@ -101,10 +100,9 @@ $('teacher-toggle').addEventListener('click',()=>{state.teacher=!state.teacher;s
 $('prev').addEventListener('click',()=>{if(state.step>0)navigate(state.step-1);});$('next').addEventListener('click',()=>{if(state.step<9)navigate(state.step+1);else if(!state.allUnlocked){document.getElementById('gate-code')?.focus();document.getElementById('journey-slot')?.scrollIntoView({block:'center',behavior:'smooth'});}});
 $('complete').addEventListener('click',()=>{
  if(gateTarget!==null)return;
- if(!stepReady(state.step)){const missing=STEPS[state.step].fields.find(([key])=>!response(state.step,key));toast('請完成本關三項思考紀錄，再取得通關代碼。');$('answer-'+missing[0]).focus();return;}
+ if(!stepReady(state.step)){const missing=STEPS[state.step].fields.find(([key])=>!response(state.step,key));toast('請完成本關三項思考紀錄，再標記完成。');$('answer-'+missing[0]).focus();return;}
  if(!state.completed.includes(state.step))state.completed.push(state.step);
- if(!state.awarded.includes(state.step))state.awarded.push(state.step);
- save();renderNav();updateFooter();renderGate();$('journey-slot').scrollIntoView({block:'center',behavior:'smooth'});toast(state.step===9?'已取得最後代碼，輸入後即可解鎖全部步驟。':'已完成本關，請用代碼解鎖下一關。');
+ save();renderNav();updateFooter();renderGate();$('journey-slot').scrollIntoView({block:'center',behavior:'smooth'});toast('本關紀錄已保存，請依講師指示取得通關密碼。');
 });
 $('export').addEventListener('click',exportMarkdown);$('download-json').addEventListener('click',()=>download('教材轉譯設計筆記-備份.json',JSON.stringify(state,null,2),'application/json'));
 $('import').addEventListener('click',()=>$('import-file').click());$('import-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>250000)throw Error('檔案過大，請選擇本頁匯出的 JSON 筆記。');const next=cleanState(JSON.parse(await file.text()));if(STEPS.some((_,i)=>stepFilled(i))&&!window.confirm('匯入會取代目前瀏覽器中的筆記。請先匯出備份；確定要取代嗎？'))return;state=next;gateTarget=null;save();render();toast('筆記已匯入。');}catch(err){toast(err.message||'匯入失敗，請檢查備份檔案。');}finally{e.target.value='';}});
