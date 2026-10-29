@@ -1,1 +1,98 @@
-<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>資料夾自動製作實測</title><style>body{max-width:1100px;margin:40px auto;padding:24px;background:#f8f6ef;color:#21483e;font:18px/1.8 system-ui}img{width:100%;height:auto}a{color:#21483e}nav{display:flex;gap:24px;flex-wrap:wrap}.note{padding:20px;background:#ecefdf}</style><a href="index.html#workbench">← 回工作坊</a><h1>從教材資料夾，到圖片、PDF與答案</h1><p>2026-10-29｜四年級自然第一單元「地表的靜與動」｜10格進階</p><p><strong>範圍修正：本頁是先前的整單元總覽試作，不是活動1、2、3各自完成的成果。正式流程已改為按活動分別製作，分活動實測尚未完成。</strong></p><p>先前整單元技術流程：上傳兩份教材 → NotebookLM分析 → ChatGPT轉譯與出圖 → 下載 → 依單元存檔 → PDF → 實圖答案。</p><nav><a href="assets/自動流程實測/學生學習單-第1頁.png" download>下載學生圖片</a><a href="assets/自動流程實測/學生學習單.pdf">開啟PDF</a><a href="assets/自動流程實測/教師答案.md">教師答案</a><a href="assets/自動流程實測/測試結果.md">完整測試結果</a></nav><p class="note">AI草稿，尚未經教師審核。圖片加入非指定教材例子的鹿；地震圖示與安全表述仍待確認。格數與檔案檢查通過不等於教材內容全數正確。</p><a href="assets/自動流程實測/學生學習單-第1頁.png"><img src="assets/自動流程實測/學生學習單-第1頁.png" alt="地表的靜與動學生學習單，三區實際10格，黑白圖文，待教師審核"></a></html>
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>自然第一單元｜自動流程實測與成果比較</title>
+<style>
+:root{color-scheme:light;--ink:#203b36;--green:#286353;--mint:#eaf2ed;--cream:#f8f6ef;--line:#d5e1dc;--orange:#fff1cf;--muted:#5f6e69}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.7 system-ui,"Noto Sans TC",sans-serif}
+main{max-width:1180px;margin:0 auto;padding:28px 22px 64px}a{color:#185b49}nav{margin-bottom:22px}nav a{font-weight:700;text-decoration:none}
+.hero{padding:30px 34px;border-radius:22px;background:linear-gradient(120deg,#e7f0ea,#fff);border:1px solid var(--line)}
+.kicker{font-size:14px;color:var(--green);font-weight:800;letter-spacing:.08em}h1{font-size:clamp(30px,5vw,48px);line-height:1.2;margin:8px 0 12px}h2{font-size:28px;line-height:1.3;margin:0 0 12px}h3{font-size:21px;line-height:1.4;margin:0 0 8px}.lead{max-width:850px;font-size:19px;margin:0}
+.pill{display:inline-block;padding:3px 12px;border-radius:99px;background:#e0eee6;color:#215e4d;font-size:14px;font-weight:800}
+.notice{margin:18px 0 30px;padding:16px 20px;background:var(--orange);border:1px solid #e8d49e;border-radius:14px}
+section{margin-top:36px}.section-intro{color:var(--muted);margin:0 0 18px}
+.baseline{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(250px,.8fr);gap:22px;align-items:start}
+.panel,.sheet{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 3px 14px #25483e0a}
+figure{margin:0}figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:white}figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.button{display:inline-block;background:var(--green);color:white!important;text-decoration:none;padding:8px 13px;border-radius:9px;font-size:14px;font-weight:700}.button.secondary{background:#edf3ef;color:var(--green)!important;border:1px solid var(--line)}
+.stat{font-size:28px;font-weight:900;color:var(--green);margin:4px 0}.list{padding-left:22px}.list li{margin:6px 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.sheet{padding:14px}.sheet img{aspect-ratio:1.414/1;object-fit:contain;background:#fff}.sheet-head{display:flex;gap:10px;align-items:center;margin:0 0 10px}.sheet-head .pill{white-space:nowrap}.sheet p{margin:8px 0;color:var(--muted)}
+.compare{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.compare th,.compare td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.compare th{background:#eaf2ed}.compare tr:last-child td{border-bottom:0}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;counter-reset:step}.step{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px;counter-increment:step}.step:before{content:counter(step);display:inline-grid;place-items:center;width:28px;height:28px;margin-bottom:8px;border-radius:50%;background:var(--green);color:white;font-weight:900}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#203b36;color:#f7fbf8;padding:20px;border-radius:14px;font:15px/1.7 ui-monospace,Consolas,monospace}.small{font-size:14px;color:var(--muted)}.footer-flow{margin-top:28px;padding:17px;border:2px solid var(--green);border-radius:16px;background:#edf5ef;text-align:center;font-weight:900;font-size:20px}.footer-flow p{font-size:15px;font-weight:500;margin:4px 0 0}
+@media(max-width:850px){.baseline{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.compare{font-size:14px}.compare th,.compare td{padding:8px}}
+@media print{body{background:white}main{max-width:none;padding:0}.hero,.panel,.sheet,.notice{box-shadow:none}}
+</style>
+</head>
+<body><main>
+<nav><a href="index.html#workbench">← 回工作坊</a></nav>
+<header class="hero">
+<div class="kicker">四年級自然・第一單元｜流程實測與成品比較</div>
+<h1>同一單元，兩種學習單做法</h1>
+<p class="lead">先前的自動流程把整個單元整理成一張 10 格總覽；已完成的 ChatGPT 成品則把第一單元拆成三張活動學習單，每張 16 格。下面放上實際頁面，讓老師直接比較範圍、題量與圖像安排。</p>
+</header>
+
+<p class="notice"><strong>測試狀態：</strong>自動流程的整單元 10 格試作已完成上傳、分析、出圖、下載與 PDF 封裝測試。以下三張 16 格活動版是既有 ChatGPT 成品，現在上架供比較；它們不代表自動流程的活動級批次製作已完成測試。所有教材內容與插圖仍需教師終審。</p>
+
+<section id="baseline">
+<h2>先前自動流程：整個單元一張，10 格</h2>
+<p class="section-intro">同一張跨過「地表物質、地表變動、地震防災」三個活動，適合快速總覽；若要練習每個活動內的概念關聯，題目和脈絡會較濃縮。</p>
+<div class="baseline">
+<div class="panel"><figure><a href="assets/自動流程實測/學生學習單-第1頁.png"><img src="assets/自動流程實測/學生學習單-第1頁.png" alt="自動流程整單元總覽，三個活動合在一張，10 格"></a><figcaption>自動流程原始學生版｜整單元總覽｜10 格</figcaption></figure>
+<div class="actions"><a class="button" href="assets/自動流程實測/學生學習單-第1頁.png" download>下載 PNG</a><a class="button secondary" href="assets/自動流程實測/學生學習單.pdf">開啟 PDF</a><a class="button secondary" href="assets/自動流程實測/測試結果.md">查看測試紀錄</a><a class="button secondary" href="assets/自動流程實測/教師答案.md">教師答案</a></div></div>
+<aside class="panel"><span class="pill">單張整單元</span><div class="stat">10 格</div><ul class="list"><li>三個活動同頁呈現，讀者容易先看見單元總覽。</li><li>每個活動能分配到的書寫題較少，細節較精簡。</li><li>本次測試發現鹿不是指定教材例子；地震圖示與安全表述待教師確認。</li></ul></aside>
+</div>
+</section>
+
+<section id="activity-sheets">
+<h2>已完成的自然第一單元：三個活動各一張，均 16 格</h2>
+<p class="section-intro">以下使用原有 ChatGPT 學生版圖檔與 PDF，沒有重新排版。每張只處理一個活動，三張共 48 格；總格數較多是因為範圍不同，不能直接當成同範圍的難度比較。</p>
+<div class="grid">
+<article class="sheet"><div class="sheet-head"><span class="pill">活動 1-1</span><h3>地表物質有什麼</h3></div><figure><a href="assets/成果比較/自然第一單元/自然1-1-地表物質有什麼-學生.png"><img loading="lazy" src="assets/成果比較/自然第一單元/自然1-1-地表物質有什麼-學生.png" alt="活動1-1地表物質有什麼，獨立學生學習單"></a><figcaption>16 格｜環境裡有什麼 → 摸一摸，比顆粒 → 特性與生活</figcaption></figure><div class="actions"><a class="button" href="assets/成果比較/自然第一單元/自然1-1-地表物質有什麼-學生.png" download>PNG</a><a class="button secondary" href="assets/成果比較/自然第一單元/自然1-1-地表物質有什麼-學生.pdf">PDF</a></div></article>
+<article class="sheet"><div class="sheet-head"><span class="pill">活動 1-2</span><h3>地表環境會變動嗎</h3></div><figure><a href="assets/成果比較/自然第一單元/自然1-2-地表環境會變動嗎-學生.png"><img loading="lazy" src="assets/成果比較/自然第一單元/自然1-2-地表環境會變動嗎-學生.png" alt="活動1-2地表環境會變動嗎，獨立學生學習單"></a><figcaption>16 格｜看見變動的線索 → 流水實驗找規律 → 開發與保護</figcaption></figure><div class="actions"><a class="button" href="assets/成果比較/自然第一單元/自然1-2-地表環境會變動嗎-學生.png" download>PNG</a><a class="button secondary" href="assets/成果比較/自然第一單元/自然1-2-地表環境會變動嗎-學生.pdf">PDF</a></div></article>
+<article class="sheet"><div class="sheet-head"><span class="pill">活動 1-3</span><h3>怎樣做好地震防災</h3></div><figure><a href="assets/成果比較/自然第一單元/自然1-3-怎樣做好地震防災-學生.png"><img loading="lazy" src="assets/成果比較/自然第一單元/自然1-3-怎樣做好地震防災-學生.png" alt="活動1-3怎樣做好地震防災，獨立學生學習單"></a><figcaption>16 格｜地震造成的變動 → 看懂地震資訊 → 平時、發生時、發生後</figcaption></figure><div class="actions"><a class="button" href="assets/成果比較/自然第一單元/自然1-3-怎樣做好地震防災-學生.png" download>PNG</a><a class="button secondary" href="assets/成果比較/自然第一單元/自然1-3-怎樣做好地震防災-學生.pdf">PDF</a></div></article>
+</div>
+</section>
+
+<section id="comparison">
+<h2>比較重點</h2>
+<table class="compare"><thead><tr><th>比較面向</th><th>自動流程試作</th><th>既有活動版成品</th></tr></thead><tbody>
+<tr><td>範圍</td><td>第一單元三活動合在一張</td><td>1-1、1-2、1-3 各自一張</td></tr>
+<tr><td>填空格數</td><td>整張 10 格</td><td>每活動 16 格，三張共 48 格</td></tr>
+<tr><td>學習脈絡</td><td>一頁快速看見單元三主題</td><td>每張依活動內的觀察、比較、因果或時序關係展開</td></tr>
+<tr><td>圖像呈現</td><td>黑白圖文總覽，方便快速掃讀</td><td>黑白線稿搭配題目與概念區，分開支持各活動脈絡</td></tr>
+<tr><td>目前證據</td><td>已做單次整單元技術流程測試；教材仍待核對</td><td>既有成品已上架比較；尚不代表自動批次流程完成驗證</td></tr>
+</tbody></table>
+</section>
+
+<section id="prompt">
+<h2>老師可以怎麼修改 Prompt</h2>
+<p class="section-intro">最關鍵的是先限定「一張只做一個活動」，再說明每張的格數、概念關係和圖像限制。每次只替換括號內的活動名稱、頁碼與題數。</p>
+<div class="steps">
+<div class="step"><strong>說清楚範圍</strong><br>寫出課次、活動名與課本頁碼，明確禁止合併其他活動。</div>
+<div class="step"><strong>指定每張題量</strong><br>寫「每活動 16 格」或班級需要的數量，不只寫整單元總格數。</div>
+<div class="step"><strong>要求關聯練習</strong><br>讓題目依教材中的觀察、比較、原因結果或時序建立連結。</div>
+<div class="step"><strong>限定圖片內容</strong><br>只畫教材明確提供的物件與例子；不能確認時不要自行加情境。</div>
+<div class="step"><strong>要求交付與檢查</strong><br>學生版不露答案；教師版、答案表與題數逐格對照；版面須留有書寫空間。</div>
+</div>
+<h3 style="margin-top:22px">可直接貼給 ChatGPT 的範例</h3>
+<pre><code>請根據我提供的四上自然教材，製作「第一單元：地表的靜與動」中的一張圖像式填空學習單。
+
+本次只做【活動代碼與活動名稱】，課本範圍是【印刷頁碼】；每個活動必須各自成為一張獨立學習單，不得把其他活動合併進來。
+
+請先依教材整理本活動的核心概念與關係，再重組成三個清楚區塊。每區放一個核心概念、重要重點和教材例子，讓學生練習把概念連起來，不要照抄頁面順序。
+
+填空共【每活動格數】格。題目要涵蓋教材支持的分類、比較、因果或時序關係；每格答案要明確，教師答案表需附對應教材頁碼。若教材未明確提供，請標示「教材未明確提供」，不要猜。
+
+製作 A4 橫式學生版：文字適合四年級、黑白列印清楚、留足書寫空間。內容太多時先刪重複、縮短句子，不要縮小字硬塞；仍放不下時，將同一活動拆頁，不要合併別的活動。
+
+插圖只使用教材支持的例子，不新增動物、地點、數據或安全指示，也不要讓圖片直接提示答案。學生版不顯示答案或填空編號；另製作與學生版完全同版面的教師答案版及獨立答案表。
+
+完成後逐一核對：活動範圍、實際填空格數、答案與教材頁碼、學生版是否藏答案、教師版是否逐格相符、A4 橫式是否裁切或重疊。仍有疑問的教材內容請列給老師人工確認。</code></pre>
+<p class="small">題數範例依現有活動版設定為每活動 16 格；老師可依學生程度調整。教材內容、答案與插圖仍要回課本核對。</p>
+</section>
+
+<div class="footer-flow">整單元看總覽 → 活動各自拆解 → 依教材關係練習連結<p>先決定這張學習單要幫學生看見哪一段脈絡，再選擇題數與圖像。</p></div>
+</main></body></html>

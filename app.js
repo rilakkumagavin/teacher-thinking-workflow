@@ -228,7 +228,7 @@ function renderFinalWorkflow(){
    ├─ 教師答案.md
    ├─ 教材分析.md
    ├─ 出圖指令.txt
-   └─ 來源與執行紀錄.md</pre><p>這是預期存檔範例。自然科每活動各自存圖片、PDF與答案，不把三活動合成一張；多頁依序合併PDF，同次候選圖全部保留。答案依實際圖面位置對照，不沿用已改掉的題目。</p></details><section class="goal-pair"><div class="flow-card"><h3>AI 先做完草案</h3><p>自行檢查來源、圖文、格數、檔案與答案對照。不清楚的地方列待查；失敗就保存已完成的部分並回報。</p></div><div class="flow-card"><h3>老師最後決定</h3><p>開啟實際圖片與PDF，核對教材、答案、字體與手寫空間，再決定能否給學生用。</p></div></section><p>目前提供可下載的Skill與PDF封裝程式；先前測試為整單元總覽，尚未完成活動1、2、3分開製作的實測。整單元測試已完成上傳、分析、出圖、下載、PDF與答案的技術實測；批次、跨帳號與失敗續作仍未驗證，教材仍待教師審核。<a href="自動流程實測.html" target="_blank" rel="noopener">查看實際成果與測試結果 ↗</a></p>${reviewPanel()}<div id="artifact-preview" hidden>${escapeHTML(FOLDER_WORKFLOW_PROMPT)}</div></div>`;
+   └─ 來源與執行紀錄.md</pre><p>這是預期存檔範例。自然科每活動各自存圖片、PDF與答案，不把三活動合成一張；多頁依序合併PDF，同次候選圖全部保留。答案依實際圖面位置對照，不沿用已改掉的題目。</p></details><section class="goal-pair"><div class="flow-card"><h3>AI 先做完草案</h3><p>自行檢查來源、圖文、格數、檔案與答案對照。不清楚的地方列待查；失敗就保存已完成的部分並回報。</p></div><div class="flow-card"><h3>老師最後決定</h3><p>開啟實際圖片與PDF，核對教材、答案、字體與手寫空間，再決定能否給學生用。</p></div></section><p>目前提供可下載的Skill與PDF封裝程式；自然第一單元三張既有ChatGPT活動版已上架供比較，每活動16格。自動流程已完成單次整單元10格測試，但活動級批次、跨帳號與失敗續作尚未驗證；教材仍待教師審核。<a href="自動流程實測.html" target="_blank" rel="noopener">查看實際成果與測試結果 ↗</a></p>${reviewPanel()}<div id="artifact-preview" hidden>${escapeHTML(FOLDER_WORKFLOW_PROMPT)}</div></div>`;
  $('copy-prompt').addEventListener('click',()=>copyText(FOLDER_WORKFLOW_PROMPT));
  bindReview();
 }
