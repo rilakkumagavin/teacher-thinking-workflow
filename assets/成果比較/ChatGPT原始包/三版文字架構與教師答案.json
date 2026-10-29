@@ -1,0 +1,480 @@
+{
+  "metadata": {
+    "subject": "四年級自然",
+    "unit": "活動1：地表物質有什麼",
+    "pages": "課本12–17頁",
+    "status": "AI生成展示版，尚待教師確認；未執行教師人工核對與學生試填",
+    "core_question": "觀察不同地表圖片，可以找出哪些差異？地表環境有哪些生物與非生物？礫石、沙和土壤又有什麼不同？",
+    "fill_counts": {
+      "基礎": 16,
+      "進階": 16,
+      "挑戰": 16
+    }
+  },
+  "branches": {
+    "環境": {
+      "title": "地表上有哪些不同的環境？",
+      "source": "課本 12–13 頁",
+      "concept": "地表有高山、平原、河流、海洋、森林等不同環境；環境中有生物，也有空氣、水、岩石、土壤等非生物。",
+      "examples": "高山、平原、河流、海洋、森林；興建房屋、翻動土壤種植農作物。",
+      "summary": "地表環境的樣貌不同，可以透過觀察、分類、比較，認識它們的組成。"
+    },
+    "棲地": {
+      "title": "為什麼不同生物住在不同地方？",
+      "source": "課本 14–15 頁",
+      "concept": "生物需要空氣、水等條件才能生存；不同生物適合的環境不相同，換到其他環境後不一定能生長得一樣好。",
+      "examples": "岩縫植物、沙丘植物、土壤中的蟻窩；西瓜、水稻、栗喉蜂虎、招潮蟹。",
+      "summary": "生物對生活環境有不同需求，可從居住或生長的環境觀察它們與環境的關係。"
+    },
+    "物質": {
+      "title": "礫石、沙和土壤有什麼不同？",
+      "source": "課本 16–17 頁",
+      "concept": "岩石會碎裂成較小的礫石；礫石、沙和土壤的顆粒大小與觸感不同，能透過觀察、觸摸比較，也有不同生活用途。",
+      "examples": "岩石碎裂成礫石；比較三種物質；堅硬岩塊鋪步道、岩石切割後蓋房子、肥沃土壤種植農作物。",
+      "summary": "先觀察與比較地表物質的不同，再認識它們在生活中的用途。"
+    }
+  },
+  "versions": {
+    "基礎": {
+      "branches": [
+        {
+          "branch": "地表上有哪些不同的環境？",
+          "concept": "地表有高山、平原、河流、海洋、森林等不同環境；環境中有生物，也有空氣、水、岩石、土壤等非生物。",
+          "examples": "高山、平原、河流、海洋、森林；興建房屋、翻動土壤種植農作物。",
+          "summary": "地表環境的樣貌不同，可以透過觀察、分類、比較，認識它們的組成。",
+          "entries": [
+            {
+              "order": 1,
+              "subconcept": "環境樣貌",
+              "student_sentence": "地表上有高山、平原、河流、海洋和【　　　　　　】等不同環境。",
+              "answer": "森林",
+              "teacher_full_sentence": "地表上有高山、平原、河流、海洋和【森林】等不同環境。"
+            },
+            {
+              "order": 2,
+              "subconcept": "環境成員",
+              "student_sentence": "地表環境中有生物，也有【　　　　　　】。",
+              "answer": "非生物",
+              "teacher_full_sentence": "地表環境中有生物，也有【非生物】。"
+            },
+            {
+              "order": 3,
+              "subconcept": "生物分類",
+              "student_sentence": "山林裡棲息的動物，屬於地表環境中的【　　　　　　】。",
+              "answer": "生物",
+              "teacher_full_sentence": "山林裡棲息的動物，屬於地表環境中的【生物】。"
+            },
+            {
+              "order": 4,
+              "subconcept": "非生物分類",
+              "student_sentence": "空氣、水、岩石和【　　　　　　】都是非生物。",
+              "answer": "土壤",
+              "teacher_full_sentence": "空氣、水、岩石和【土壤】都是非生物。"
+            },
+            {
+              "order": 5,
+              "subconcept": "人類利用",
+              "student_sentence": "農夫翻動土壤，是為了【　　　　　　】農作物。",
+              "answer": "種植",
+              "teacher_full_sentence": "農夫翻動土壤，是為了【種植】農作物。"
+            }
+          ]
+        },
+        {
+          "branch": "為什麼不同生物住在不同地方？",
+          "concept": "生物需要空氣、水等條件才能生存；不同生物適合的環境不相同，換到其他環境後不一定能生長得一樣好。",
+          "examples": "岩縫植物、沙丘植物、土壤中的蟻窩；西瓜、水稻、栗喉蜂虎、招潮蟹。",
+          "summary": "生物對生活環境有不同需求，可從居住或生長的環境觀察它們與環境的關係。",
+          "entries": [
+            {
+              "order": 6,
+              "subconcept": "生存需要",
+              "student_sentence": "生物生存需要空氣和【　　　　　　】等條件。",
+              "answer": "水",
+              "teacher_full_sentence": "生物生存需要空氣和【水】等條件。"
+            },
+            {
+              "order": 7,
+              "subconcept": "岩縫與沙丘",
+              "student_sentence": "岩縫裡有植物，沙丘上也有【　　　　　　】生長。",
+              "answer": "植物",
+              "teacher_full_sentence": "岩縫裡有植物，沙丘上也有【植物】生長。"
+            },
+            {
+              "order": 8,
+              "subconcept": "西瓜生長",
+              "student_sentence": "西瓜適合鬆散、排水性【　　　　　　】的土壤。",
+              "answer": "好",
+              "teacher_full_sentence": "西瓜適合鬆散、排水性【好】的土壤。"
+            },
+            {
+              "order": 9,
+              "subconcept": "水稻生長",
+              "student_sentence": "水稻適合有點黏性的【　　　　　　】土壤。",
+              "answer": "溼潤",
+              "teacher_full_sentence": "水稻適合有點黏性的【溼潤】土壤。"
+            },
+            {
+              "order": 10,
+              "subconcept": "動物居住",
+              "student_sentence": "招潮蟹棲息在鬆軟的海濱【　　　　　　】。",
+              "answer": "泥灘地",
+              "teacher_full_sentence": "招潮蟹棲息在鬆軟的海濱【泥灘地】。"
+            }
+          ]
+        },
+        {
+          "branch": "礫石、沙和土壤有什麼不同？",
+          "concept": "岩石會碎裂成較小的礫石；礫石、沙和土壤的顆粒大小與觸感不同，能透過觀察、觸摸比較，也有不同生活用途。",
+          "examples": "岩石碎裂成礫石；比較三種物質；堅硬岩塊鋪步道、岩石切割後蓋房子、肥沃土壤種植農作物。",
+          "summary": "先觀察與比較地表物質的不同，再認識它們在生活中的用途。",
+          "entries": [
+            {
+              "order": 11,
+              "subconcept": "岩石變化",
+              "student_sentence": "岩石會【　　　　　　】成較小的礫石。",
+              "answer": "碎裂",
+              "teacher_full_sentence": "岩石會【碎裂】成較小的礫石。"
+            },
+            {
+              "order": 12,
+              "subconcept": "顆粒比較",
+              "student_sentence": "礫石、沙和土壤中，【　　　　　　】的顆粒最大。",
+              "answer": "礫石",
+              "teacher_full_sentence": "礫石、沙和土壤中，【礫石】的顆粒最大。"
+            },
+            {
+              "order": 13,
+              "subconcept": "顆粒比較",
+              "student_sentence": "礫石、沙和土壤中，【　　　　　　】的顆粒最小。",
+              "answer": "土壤",
+              "teacher_full_sentence": "礫石、沙和土壤中，【土壤】的顆粒最小。"
+            },
+            {
+              "order": 14,
+              "subconcept": "觀察方法",
+              "student_sentence": "先觀察外觀，再用手【　　　　　　】，記錄不同。",
+              "answer": "觸摸",
+              "teacher_full_sentence": "先觀察外觀，再用手【觸摸】，記錄不同。"
+            },
+            {
+              "order": 15,
+              "subconcept": "材料用途",
+              "student_sentence": "堅硬的岩塊可以用來鋪設【　　　　　　】。",
+              "answer": "步道",
+              "teacher_full_sentence": "堅硬的岩塊可以用來鋪設【步道】。"
+            },
+            {
+              "order": 16,
+              "subconcept": "種植用途",
+              "student_sentence": "肥沃的土壤可以讓【　　　　　　】生長良好。",
+              "answer": "農作物",
+              "teacher_full_sentence": "肥沃的土壤可以讓【農作物】生長良好。"
+            }
+          ]
+        }
+      ],
+      "reason_questions": []
+    },
+    "進階": {
+      "branches": [
+        {
+          "branch": "地表上有哪些不同的環境？",
+          "concept": "地表有高山、平原、河流、海洋、森林等不同環境；環境中有生物，也有空氣、水、岩石、土壤等非生物。",
+          "examples": "高山、平原、河流、海洋、森林；興建房屋、翻動土壤種植農作物。",
+          "summary": "地表環境的樣貌不同，可以透過觀察、分類、比較，認識它們的組成。",
+          "entries": [
+            {
+              "order": 1,
+              "subconcept": "不同樣貌",
+              "student_sentence": "比較地表環境：高山、平原、河流和【　　　　　　】，樣貌不相同。",
+              "answer": "海洋",
+              "teacher_full_sentence": "比較地表環境：高山、平原、河流和【海洋】，樣貌不相同。"
+            },
+            {
+              "order": 2,
+              "subconcept": "分類依據",
+              "student_sentence": "空氣和水不會像動物、植物一樣生長，教材把它們列為【　　　　　　】。",
+              "answer": "非生物",
+              "teacher_full_sentence": "空氣和水不會像動物、植物一樣生長，教材把它們列為【非生物】。"
+            },
+            {
+              "order": 3,
+              "subconcept": "生物與非生物",
+              "student_sentence": "森林裡的動物屬於生物，岩石則屬於【　　　　　　】。",
+              "answer": "非生物",
+              "teacher_full_sentence": "森林裡的動物屬於生物，岩石則屬於【非生物】。"
+            },
+            {
+              "order": 4,
+              "subconcept": "環境與活動",
+              "student_sentence": "地表除了自然景物，也能看到人類【　　　　　　】等活動。",
+              "answer": "興建房屋",
+              "teacher_full_sentence": "地表除了自然景物，也能看到人類【興建房屋】等活動。"
+            },
+            {
+              "order": 5,
+              "subconcept": "觀察與統整",
+              "student_sentence": "面對不同地表圖片，可以先觀察，再將成員分成生物與【　　　　　　】作比較。",
+              "answer": "非生物",
+              "teacher_full_sentence": "面對不同地表圖片，可以先觀察，再將成員分成生物與【非生物】作比較。"
+            }
+          ]
+        },
+        {
+          "branch": "為什麼不同生物住在不同地方？",
+          "concept": "生物需要空氣、水等條件才能生存；不同生物適合的環境不相同，換到其他環境後不一定能生長得一樣好。",
+          "examples": "岩縫植物、沙丘植物、土壤中的蟻窩；西瓜、水稻、栗喉蜂虎、招潮蟹。",
+          "summary": "生物對生活環境有不同需求，可從居住或生長的環境觀察它們與環境的關係。",
+          "entries": [
+            {
+              "order": 6,
+              "subconcept": "生存與條件",
+              "student_sentence": "生物需要空氣和水等條件，因此觀察棲地時，也要留意環境中有哪些【　　　　　　】。",
+              "answer": "非生物",
+              "teacher_full_sentence": "生物需要空氣和水等條件，因此觀察棲地時，也要留意環境中有哪些【非生物】。"
+            },
+            {
+              "order": 7,
+              "subconcept": "作物比較",
+              "student_sentence": "西瓜適合排水性好的土壤；相較之下，水稻適合有點黏性的【　　　　　　】土壤。",
+              "answer": "溼潤",
+              "teacher_full_sentence": "西瓜適合排水性好的土壤；相較之下，水稻適合有點黏性的【溼潤】土壤。"
+            },
+            {
+              "order": 8,
+              "subconcept": "生長條件",
+              "student_sentence": "同樣是種植作物，西瓜與水稻適合的【　　　　　　】不相同。",
+              "answer": "土壤條件",
+              "teacher_full_sentence": "同樣是種植作物，西瓜與水稻適合的【土壤條件】不相同。"
+            },
+            {
+              "order": 9,
+              "subconcept": "棲地比較",
+              "student_sentence": "栗喉蜂虎在陡峭土丘鑽洞；招潮蟹則住在鬆軟的【　　　　　　】。",
+              "answer": "海濱泥灘地",
+              "teacher_full_sentence": "栗喉蜂虎在陡峭土丘鑽洞；招潮蟹則住在鬆軟的【海濱泥灘地】。"
+            },
+            {
+              "order": 10,
+              "subconcept": "條件與結果",
+              "student_sentence": "因為不同生物適合的環境不相同，換到其他環境後，【　　　　　　】能生長得一樣好。",
+              "answer": "不一定",
+              "teacher_full_sentence": "因為不同生物適合的環境不相同，換到其他環境後，【不一定】能生長得一樣好。"
+            }
+          ]
+        },
+        {
+          "branch": "礫石、沙和土壤有什麼不同？",
+          "concept": "岩石會碎裂成較小的礫石；礫石、沙和土壤的顆粒大小與觸感不同，能透過觀察、觸摸比較，也有不同生活用途。",
+          "examples": "岩石碎裂成礫石；比較三種物質；堅硬岩塊鋪步道、岩石切割後蓋房子、肥沃土壤種植農作物。",
+          "summary": "先觀察與比較地表物質的不同，再認識它們在生活中的用途。",
+          "entries": [
+            {
+              "order": 11,
+              "subconcept": "形成關係",
+              "student_sentence": "岩石會經過【　　　　　　】，成為較小的礫石；這不是三種物質的完整形成順序。",
+              "answer": "碎裂",
+              "teacher_full_sentence": "岩石會經過【碎裂】，成為較小的礫石；這不是三種物質的完整形成順序。"
+            },
+            {
+              "order": 12,
+              "subconcept": "大小比較",
+              "student_sentence": "比較礫石、沙、土壤的顆粒：礫石最大，沙在中間，【　　　　　　】最小。",
+              "answer": "土壤",
+              "teacher_full_sentence": "比較礫石、沙、土壤的顆粒：礫石最大，沙在中間，【土壤】最小。"
+            },
+            {
+              "order": 13,
+              "subconcept": "觸感比較",
+              "student_sentence": "礫石摸起來粗粗的；相較之下，土壤摸起來【　　　　　　】。",
+              "answer": "細細的",
+              "teacher_full_sentence": "礫石摸起來粗粗的；相較之下，土壤摸起來【細細的】。"
+            },
+            {
+              "order": 14,
+              "subconcept": "觀察順序",
+              "student_sentence": "先看外觀，再用手觸摸，最後【　　　　　　】三種物質的不同。",
+              "answer": "記錄",
+              "teacher_full_sentence": "先看外觀，再用手觸摸，最後【記錄】三種物質的不同。"
+            },
+            {
+              "order": 15,
+              "subconcept": "特性與用途",
+              "student_sentence": "因為岩塊【　　　　　　】，可以用來鋪設步道。",
+              "answer": "堅硬",
+              "teacher_full_sentence": "因為岩塊【堅硬】，可以用來鋪設步道。"
+            },
+            {
+              "order": 16,
+              "subconcept": "用途比較",
+              "student_sentence": "岩石切割後可以蓋房子；相較之下，肥沃土壤可以讓【　　　　　　】生長良好。",
+              "answer": "農作物",
+              "teacher_full_sentence": "岩石切割後可以蓋房子；相較之下，肥沃土壤可以讓【農作物】生長良好。"
+            }
+          ]
+        }
+      ],
+      "reason_questions": []
+    },
+    "挑戰": {
+      "branches": [
+        {
+          "branch": "地表上有哪些不同的環境？",
+          "concept": "地表有高山、平原、河流、海洋、森林等不同環境；環境中有生物，也有空氣、水、岩石、土壤等非生物。",
+          "examples": "高山、平原、河流、海洋、森林；興建房屋、翻動土壤種植農作物。",
+          "summary": "地表環境的樣貌不同，可以透過觀察、分類、比較，認識它們的組成。",
+          "entries": [
+            {
+              "order": 1,
+              "subconcept": "觀察整體",
+              "student_sentence": "兩張地表圖的景物可能不同，先找出高山、平原、河流、海洋等【　　　　　　】。",
+              "answer": "環境樣貌",
+              "teacher_full_sentence": "兩張地表圖的景物可能不同，先找出高山、平原、河流、海洋等【環境樣貌】。"
+            },
+            {
+              "order": 2,
+              "subconcept": "分類判斷",
+              "student_sentence": "若圖片中同時出現動物、岩石與水，岩石和水應歸在【　　　　　　】。",
+              "answer": "非生物",
+              "teacher_full_sentence": "若圖片中同時出現動物、岩石與水，岩石和水應歸在【非生物】。"
+            },
+            {
+              "order": 3,
+              "subconcept": "整合分類",
+              "student_sentence": "比較山林動物與岩石：前者是生物，後者是【　　　　　　】，不能只憑是否在同一張圖片分類。",
+              "answer": "非生物",
+              "teacher_full_sentence": "比較山林動物與岩石：前者是生物，後者是【非生物】，不能只憑是否在同一張圖片分類。"
+            },
+            {
+              "order": 4,
+              "subconcept": "環境中的人",
+              "student_sentence": "照片中若有興建房子或翻動土壤，可辨認出人類在【　　　　　　】地表環境。",
+              "answer": "利用",
+              "teacher_full_sentence": "照片中若有興建房子或翻動土壤，可辨認出人類在【利用】地表環境。"
+            },
+            {
+              "order": 5,
+              "subconcept": "整體統整",
+              "student_sentence": "觀察地表圖片後，可以依【　　　　　　】分類，再比較不同環境的組成。",
+              "answer": "生物與非生物",
+              "teacher_full_sentence": "觀察地表圖片後，可以依【生物與非生物】分類，再比較不同環境的組成。"
+            }
+          ]
+        },
+        {
+          "branch": "為什麼不同生物住在不同地方？",
+          "concept": "生物需要空氣、水等條件才能生存；不同生物適合的環境不相同，換到其他環境後不一定能生長得一樣好。",
+          "examples": "岩縫植物、沙丘植物、土壤中的蟻窩；西瓜、水稻、栗喉蜂虎、招潮蟹。",
+          "summary": "生物對生活環境有不同需求，可從居住或生長的環境觀察它們與環境的關係。",
+          "entries": [
+            {
+              "order": 6,
+              "subconcept": "作物線索",
+              "student_sentence": "觀察西瓜與水稻的土壤條件：西瓜適合鬆散、排水性好；水稻適合有點黏性、【　　　　　　】。",
+              "answer": "溼潤",
+              "teacher_full_sentence": "觀察西瓜與水稻的土壤條件：西瓜適合鬆散、排水性好；水稻適合有點黏性、【溼潤】。"
+            },
+            {
+              "order": 7,
+              "subconcept": "比較結論",
+              "student_sentence": "兩種作物適合的土壤條件不同，表示不同植物對【　　　　　　】的需求不同。",
+              "answer": "生長環境",
+              "teacher_full_sentence": "兩種作物適合的土壤條件不同，表示不同植物對【生長環境】的需求不同。"
+            },
+            {
+              "order": 8,
+              "subconcept": "動物對照",
+              "student_sentence": "栗喉蜂虎利用陡峭土丘鑽洞，招潮蟹則棲息在鬆軟的【　　　　　　】。",
+              "answer": "海濱泥灘地",
+              "teacher_full_sentence": "栗喉蜂虎利用陡峭土丘鑽洞，招潮蟹則棲息在鬆軟的【海濱泥灘地】。"
+            },
+            {
+              "order": 9,
+              "subconcept": "遷移推論",
+              "student_sentence": "依據生物適合的環境不同，換到另一種環境後，【　　　　　　】能生長得一樣好。",
+              "answer": "不一定",
+              "teacher_full_sentence": "依據生物適合的環境不同，換到另一種環境後，【不一定】能生長得一樣好。"
+            },
+            {
+              "order": 10,
+              "subconcept": "證據與結論",
+              "student_sentence": "對照西瓜、水稻、栗喉蜂虎和招潮蟹的例子，可發現生物與其【　　　　　　】有關。",
+              "answer": "適合環境",
+              "teacher_full_sentence": "對照西瓜、水稻、栗喉蜂虎和招潮蟹的例子，可發現生物與其【適合環境】有關。"
+            }
+          ]
+        },
+        {
+          "branch": "礫石、沙和土壤有什麼不同？",
+          "concept": "岩石會碎裂成較小的礫石；礫石、沙和土壤的顆粒大小與觸感不同，能透過觀察、觸摸比較，也有不同生活用途。",
+          "examples": "岩石碎裂成礫石；比較三種物質；堅硬岩塊鋪步道、岩石切割後蓋房子、肥沃土壤種植農作物。",
+          "summary": "先觀察與比較地表物質的不同，再認識它們在生活中的用途。",
+          "entries": [
+            {
+              "order": 11,
+              "subconcept": "形成線索",
+              "student_sentence": "教材只明確寫岩石會碎裂成較小的【　　　　　　】，不能把三者直接排成完整形成順序。",
+              "answer": "礫石",
+              "teacher_full_sentence": "教材只明確寫岩石會碎裂成較小的【礫石】，不能把三者直接排成完整形成順序。"
+            },
+            {
+              "order": 12,
+              "subconcept": "排序觀察",
+              "student_sentence": "依教材比較三種顆粒大小：礫石最大、【　　　　　　】居中、土壤最小。",
+              "answer": "沙",
+              "teacher_full_sentence": "依教材比較三種顆粒大小：礫石最大、【沙】居中、土壤最小。"
+            },
+            {
+              "order": 13,
+              "subconcept": "感官證據",
+              "student_sentence": "圖片能比較外觀；若要比較摸起來粗粗或細細的感覺，還要用手【　　　　　　】。",
+              "answer": "觸摸",
+              "teacher_full_sentence": "圖片能比較外觀；若要比較摸起來粗粗或細細的感覺，還要用手【觸摸】。"
+            },
+            {
+              "order": 14,
+              "subconcept": "步驟連結",
+              "student_sentence": "依觀察活動順序：看外觀 → 用手觸摸 → 【　　　　　　】。",
+              "answer": "記錄不同",
+              "teacher_full_sentence": "依觀察活動順序：看外觀 → 用手觸摸 → 【記錄不同】。"
+            },
+            {
+              "order": 15,
+              "subconcept": "材料與用途",
+              "student_sentence": "已知岩塊堅硬，可以用來鋪設【　　　　　　】；岩石切割後還能蓋房子。",
+              "answer": "步道",
+              "teacher_full_sentence": "已知岩塊堅硬，可以用來鋪設【步道】；岩石切割後還能蓋房子。"
+            },
+            {
+              "order": 16,
+              "subconcept": "用途整合",
+              "student_sentence": "岩石用於建屋、步道；肥沃土壤則有利於【　　　　　　】生長。",
+              "answer": "農作物",
+              "teacher_full_sentence": "岩石用於建屋、步道；肥沃土壤則有利於【農作物】生長。"
+            }
+          ]
+        }
+      ],
+      "reason_questions": [
+        [
+          "為什麼不能只看圖片，就確定礫石和土壤摸起來的感覺？",
+          "圖片提供外觀線索；觸感必須透過實際觸摸比較。"
+        ],
+        [
+          "西瓜與水稻的例子，為什麼不能直接說兩種作物適合完全相同的土壤？",
+          "教材指出西瓜適合鬆散且排水性好的土壤，水稻適合有點黏性的溼潤土壤。"
+        ]
+      ]
+    }
+  },
+  "pending_teacher_review": [
+    "本套為 AI 生成展示版本；教師人工核對與學生試填尚未執行。",
+    "需確認教冊與 NotebookLM 引用來源，尤其補充的植物、動物與沙拌水泥例子；本套未使用新增補充例子。",
+    "「生物搬到其他環境不一定生長得一樣好」維持不確定性，不推論必然無法存活。",
+    "岩石碎裂只連到礫石，不推論沙與土壤的完整形成順序。",
+    "沙的觸感細節尚待核對；沒有把它當作確定答案。",
+    "需由教師指定原先目標的前後兩張圖片；此套只以教材既有圖像類型練習比較。",
+    "實際課堂是否安排實物觸摸、放大鏡與圖片觀察，尚未確認。"
+  ]
+}
