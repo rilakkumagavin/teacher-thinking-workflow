@@ -17,7 +17,7 @@ for(let i=0;i<10;i++){
  if(Object.keys(state.records).length)throw Error('瀏覽不應自動採用');
  const prompt=buildPrompt();
  if(i===6&&(!prompt.includes('請現在先直接生成學生版圖片')||!prompt.includes('同一張圖片編輯教師答案版')||prompt.includes('B01')))throw Error('第七關必須直接出圖片、同版教師圖且無題碼');
- if(i===0?prompt!==WARMUP_PROMPT:i===9?(!prompt.includes('教材資料夾')||!prompt.includes('PDF')||!prompt.includes('教師答案')):i===8?(!prompt.includes('第二次')||!prompt.includes('不覆寫第一次')):i===7?(!prompt.includes('SKILL.md')||!prompt.includes('我的步驟')||!prompt.includes('老師')):i===6?(!prompt.includes('10 個')||!prompt.includes('難度：')):i===5?(!prompt.includes('不改變三部分知識邏輯')||!prompt.includes('需要老師確認')):i===4?prompt!==REORGANIZE_PROMPT:i===3?prompt!==CORE_ANALYSIS_PROMPT:i===2?prompt!==SOURCE_CHECK_PROMPT:i===1?(!prompt.startsWith('任教年級：')||!prompt.includes('科目：')||!prompt.includes('今天要處理的課次：')||!prompt.includes('希望學生最後學會什麼：')):(prompt.length<60||!prompt.includes('上傳教材')||!prompt.includes('老師最後確認')||prompt.includes('證據狀態：')||prompt.includes('版本：')))throw Error('完整指令或查核約束缺漏');
+ if(i===0?prompt!==WARMUP_PROMPT:i===9?(!prompt.includes('教材資料夾')||!prompt.includes('PDF')||!prompt.includes('教師答案')):i===8?(!prompt.includes('第二次')||!prompt.includes('不覆寫第一次')):i===7?(!prompt.includes('SKILL.md')||!prompt.includes('我的步驟')||!prompt.includes('老師')):i===6?(!prompt.includes('整張學習單合計 16 格')||!prompt.includes('至少一半填空')||!prompt.includes('難度：')):i===5?(!prompt.includes('不改變三部分知識邏輯')||!prompt.includes('需要老師確認')):i===4?prompt!==REORGANIZE_PROMPT:i===3?prompt!==CORE_ANALYSIS_PROMPT:i===2?prompt!==SOURCE_CHECK_PROMPT:i===1?(!prompt.startsWith('任教年級：')||!prompt.includes('科目：')||!prompt.includes('今天要處理的課次：')||!prompt.includes('希望學生最後學會什麼：')):(prompt.length<60||!prompt.includes('上傳教材')||!prompt.includes('老師最後確認')||prompt.includes('證據狀態：')||prompt.includes('版本：')))throw Error('完整指令或查核約束缺漏');
  if(i===1?!effectiveContent(i).artifact.includes('希望學生最後學會什麼'):effectiveContent(i).artifact.length<60)throw Error('缺少實際產出');
 }
 state=defaultState();
@@ -48,6 +48,7 @@ for(let i=0;i<10;i++){
  assert.ok(!element('next').disabled||i===9,`活動${i+1}可直接前進`);
 }
 assert.ok(!fs.readFileSync(path.join(__dirname,'index.html'),'utf8').includes('src="journey.js"'),'頁面不載入舊通關限制');
+vm.runInContext(`state=defaultState();navigate(6);if(!$('activity').innerHTML.includes('id=\"blank-scope\"')||!$('activity').innerHTML.includes('value=\"24\"'))throw Error('格數設定需支援計數方式及每區24格');recordContent(6,'custom',{...demoContent(6),blankCount:'24',blankScope:'per-part'});const p=buildPrompt(6);if(!p.includes('每個教學部分各 24 格；三個部分合計 72 格')||!p.includes('至少一半填空'))throw Error('每部分格數或關係練習未帶入出圖指令');`,ctx);
 console.log('通過：十關空白導覽、十關採用保存、完整 Prompt、前關銜接、調整自動保存、修訂撤回審核、v2/v3 遷移、v4 還原、無必填欄與密碼限制。');
 
 
