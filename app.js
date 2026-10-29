@@ -219,15 +219,16 @@ function renderRetestWorkshop(){
  $('adopt-retest').addEventListener('click',()=>{recordContent(8,'demo',demoContent(8));renderNav();$('adoption-status').textContent='已保存重測步驟；實際產出、比較與老師審核仍需完成。';});
 }
 function renderFinalWorkflow(){
- const stages=[['放入教材','把本次PDF或教材圖片放進同一資料夾。'],['自動上傳 NotebookLM','依單元分組，建立筆記本，上傳對應教材。'],['分析教材','確認來源，整理重點與三個教學部分。'],['ChatGPT 轉譯','改成學生看得懂的語言，保留教材關係。'],['產生圖片式學習單','依年級、格數與難度直接出圖。'],['下載並存檔','下載原圖，等比封裝PDF，依單元名稱另存版本。'],['給教師答案','對照實際學生圖片，另列答案、來源與可接受說法。']];
+ const stages=[['放入教材','把本次PDF或教材圖片放進同一資料夾。'],['自動上傳 NotebookLM','依單元分組；自然科再辨識活動，分別製作。可共用單元筆記本，查詢限定本活動。'],['分析教材','確認來源，整理重點與三個教學部分。'],['ChatGPT 轉譯','改成學生看得懂的語言，保留教材關係。'],['產生圖片式學習單','依年級、格數與難度直接出圖。'],['下載並存檔','下載原圖，等比封裝PDF，依單元／活動名稱分層另存版本。'],['給教師答案','對照實際學生圖片，另列答案、來源與可接受說法。']];
  $('activity').innerHTML=`<div class="activity-card"><div class="activity-meta"><span class="activity-number">活動 10</span><span>循環 5 · 驗證與交付</span></div><h2>從教材資料夾，到完整學習單製作包</h2><p>老師放好教材，啟動一次。AI連續處理，最後交回圖片、PDF與答案。</p><ol class="retest-path">${stages.map(([title,text],n)=>`<li class="flow-card"><span class="flow-index">${String(n+1).padStart(2,'0')}</span><h3>${title}</h3><p>${text}</p></li>`).join('')}</ol><section class="retest-start"><h3>老師先準備三件事</h3><p>① 教材資料夾與輸出位置　② 已登入的 NotebookLM 和 ChatGPT　③ 已放入 Skill，且能操作瀏覽器、上傳、下載與存檔的 Codex／Claude。</p><p>這是按指令啟動的一次製作；把檔案放進資料夾後，仍要送出啟動指令。網站不會自行監看或執行。</p></section><h3>把這段貼給執行工具</h3><button id="copy-prompt" class="primary">複製資料夾自動製作指令</button><span id="prompt-status" role="status"></span><pre class="prompt-box" id="prompt-preview">${escapeHTML(FOLDER_WORKFLOW_PROMPT)}</pre><p><a class="secondary" href="assets/skill範例/teaching-worksheet.zip" download>下載完整 Skill ZIP ↓</a></p><details><summary>最後會存成什麼樣子？</summary><pre class="prompt-box">輸出資料夾／
-└─ 自然_四年級_地表物質有什麼／版本／
+└─ 自然_四年級_地表的靜與動／
+   └─ 活動1_地表物質有什麼／版本／
    ├─ 學生學習單-第1頁.png
    ├─ 學生學習單.pdf
    ├─ 教師答案.md
    ├─ 教材分析.md
    ├─ 出圖指令.txt
-   └─ 來源與執行紀錄.md</pre><p>這是預期存檔範例。每個單元分開存放；多頁依序合併PDF，同次候選圖全部保留。答案依實際圖面位置對照，不沿用已改掉的題目。</p></details><section class="goal-pair"><div class="flow-card"><h3>AI 先做完草案</h3><p>自行檢查來源、圖文、格數、檔案與答案對照。不清楚的地方列待查；失敗就保存已完成的部分並回報。</p></div><div class="flow-card"><h3>老師最後決定</h3><p>開啟實際圖片與PDF，核對教材、答案、字體與手寫空間，再決定能否給學生用。</p></div></section><p>目前提供可下載的Skill與PDF封裝程式；本次四年級自然單單元已完成上傳、分析、出圖、下載、PDF與答案的技術實測；批次、跨帳號與失敗續作仍未驗證，教材仍待教師審核。<a href="自動流程實測.html" target="_blank" rel="noopener">查看實際成果與測試結果 ↗</a></p>${reviewPanel()}<div id="artifact-preview" hidden>${escapeHTML(FOLDER_WORKFLOW_PROMPT)}</div></div>`;
+   └─ 來源與執行紀錄.md</pre><p>這是預期存檔範例。自然科每活動各自存圖片、PDF與答案，不把三活動合成一張；多頁依序合併PDF，同次候選圖全部保留。答案依實際圖面位置對照，不沿用已改掉的題目。</p></details><section class="goal-pair"><div class="flow-card"><h3>AI 先做完草案</h3><p>自行檢查來源、圖文、格數、檔案與答案對照。不清楚的地方列待查；失敗就保存已完成的部分並回報。</p></div><div class="flow-card"><h3>老師最後決定</h3><p>開啟實際圖片與PDF，核對教材、答案、字體與手寫空間，再決定能否給學生用。</p></div></section><p>目前提供可下載的Skill與PDF封裝程式；先前測試為整單元總覽，尚未完成活動1、2、3分開製作的實測。整單元測試已完成上傳、分析、出圖、下載、PDF與答案的技術實測；批次、跨帳號與失敗續作仍未驗證，教材仍待教師審核。<a href="自動流程實測.html" target="_blank" rel="noopener">查看實際成果與測試結果 ↗</a></p>${reviewPanel()}<div id="artifact-preview" hidden>${escapeHTML(FOLDER_WORKFLOW_PROMPT)}</div></div>`;
  $('copy-prompt').addEventListener('click',()=>copyText(FOLDER_WORKFLOW_PROMPT));
  bindReview();
 }
